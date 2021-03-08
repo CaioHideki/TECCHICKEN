@@ -1,0 +1,88 @@
+CREATE DATABASE TECCHICKEN;
+USE TECCHICKEN;
+
+CREATE TABLE Usuario (
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR (25),
+	CPF CHAR (11),
+	nomeGranja VARCHAR (40),
+	CNPJ CHAR (14)
+	);
+
+INSERT INTO Usuario VALUES 
+(null, 'Henrique', '85170656033', 'Granja do Henrique', '79838569000180'),
+(null, 'Luciano', '94997759007', 'Granja do Luciano', '39175355000157'),
+(null, 'Bia', '83261392037', 'Granja da Bia', '16398022000191'),
+(null, 'Tiago', '56849110055', 'Granja do Tiago', '22575602000100'),
+(null, 'Guilherme', '91192573099', 'Granja do Guilherme', '83901455000105'),
+(null, 'Joaquim', '89771475061' , 'Granja do Joaquim', '36922249000100'),
+(null, 'Manuel', '62977993002', 'Granja do Manuel', '62977993002'),
+(null, 'Francisca' , '16404374013', 'Granja da Franscisca', '81911519000123');
+
+SELECT * FROM Usuario;
+SELECT cpf, cnpj FROM Usuario;
+SELECT * FROM Usuario WHERE nome like 'Gui%';
+SELECT * FROM Usuario ORDER BY cnpj;
+SELECT * FROM Usuario ORDER BY cnpj DESC;
+SELECT * FROM Usuario WHERE nome LIKE 'Jo%';
+SELECT * FROM Usuario WHERE cnpj LIKE '%00';
+SELECT * FROM Usuario WHERE nomeGranja LIKE '%a';
+SELECT * FROM Usuario WHERE cnpj LIKE '%__________0_';
+
+	DROP TABLE Usuario;
+
+CREATE TABLE Temperatura (
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+	temperatura CHAR (2),
+	dia DATE,
+	hora time
+	);
+
+INSERT INTO Temperatura VALUES 
+(null, '24', '2021-10-21', '12:00:22'),
+(null, '21', '2021-01-03', '17:05:50'),
+(null, '23', '2021-04-14', '10:30:23'),
+(null, '32', '2021-06-11', '17:42:09'),
+(null, '27', '2021-11-21', '18:02:32'),
+(null, '29', '2021-04-03', '18:12:56'),
+(null, '30', '2021-09-14', '13:32:42'),
+(null, '25', '2021-02-11', '22:54:12');
+
+SELECT * FROM Temperatura;
+SELECT temperatura, hora FROM Temperatura;
+SELECT * FROM Temperatura WHERE dia= '2021-02-11';
+SELECT * FROM Temperatura ORDER BY dia;
+SELECT * FROM Temperatura ORDER BY hora DESC;
+SELECT * FROM Temperatura WHERE temperatura LIKE '%30%';
+SELECT * FROM Temperatura WHERE dia LIKE '2021-01-03%';
+SELECT * FROM Temperatura WHERE hora LIKE '%12:00:22';
+SELECT * FROM Temperatura WHERE temperatura LIKE '32%';
+
+	DROP TABLE Temperatura;
+
+CREATE TABLE empresa (
+	idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+    cnpj CHAR (14),
+    estado varchar (15),
+    responsavel varchar (25)
+    );
+    
+INSERT INTO empresa VALUES
+(null, '18855207000103', 'São Paulo', 'Joaquim'),
+(null, '51624627000154', 'Amazonas', 'Maria'),
+(null, '69208604000124', 'Paraná', 'Zuleide'),
+(null, '72593529000177', 'Pernambuco', 'Paulo'),
+(null, '04339003000105', 'Pará', 'Roberto'),
+(null, '04339003000105', 'Roraima' , 'Manuel');
+
+SELECT * FROM empresa;
+SELECT cnpj, responsavel FROM empresa;
+SELECT * FROM empresa WHERE responsavel= 'paulo';
+SELECT * FROM empresa ORDER BY estado;
+SELECT * FROM empresa ORDER BY estado DESC;
+SELECT * FROM empresa WHERE estado LIKE 'são%';
+SELECT * FROM empresa WHERE cnpj LIKE '72%';
+SELECT * FROM empresa WHERE responsavel LIKE 'Ma%';
+SELECT * FROM empresa WHERE estado LIKE 'Par%';
+
+	DROP TABLE empresa;
