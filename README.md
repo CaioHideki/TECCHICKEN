@@ -1,2 +1,2 @@
-# Sprint1
+# TECCHICKEN
 Repositório da Sprint1
